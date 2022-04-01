@@ -53,62 +53,88 @@ h5 {
 }
 
 #view {
-  width: 1400px;
+  width: 100%;
   height: 90vh;
+  max-width: 1400px;
   z-index: 10;
   position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 #view #menu {
   width: 80px;
   height: 100%;
+  transition: ease 1s width;
   float: left;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: white;
+  z-index: 12;
+  position: absolute;
 }
 #view #menu .toggle {
   width: 80px;
   height: 80px;
-  color: white;
-  background: #9d00ff;
+  cursor: pointer;
   text-align: center;
 }
-#view #menu .toggle i {
+#view #menu .toggle .icon-wrapper {
+  color: white;
+  background: #9d00ff;
+}
+#view #menu .toggle h3 {
   margin: 0;
-  font-size: 2.5rem;
-  line-height: 80px;
 }
 #view #menu .dl {
   cursor: pointer;
 }
-#view #menu .icon-wrapper {
+#view #menu .icon_link {
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  color: #9d00ff;
+  font-size: 1.25rem;
+}
+#view #menu .icon_link .icon-wrapper {
   width: 80px;
   height: 80px;
+  margin-right: 1rem;
   display: inline-block;
   text-align: center;
 }
-#view #menu .icon-wrapper i {
+#view #menu .icon_link .icon-wrapper i {
   margin: 0;
-  color: #9d00ff;
   font-size: 2.5rem;
   line-height: 80px;
 }
-#view #menu .icon-wrapper i:hover {
+#view #menu .icon_link:hover {
+  color: #9d00ff;
+  font-size: 1.5rem;
+}
+#view #menu .icon_link:hover .icon-wrapper i {
   font-size: 2.75rem;
 }
 #view #center {
-  width: 528px;
   height: 106%;
+  max-width: 528px;
+  margin-left: 80px;
   box-shadow: 0px 0px 5px 1px white;
   background-color: rgba(255, 255, 255, 0.3);
-  top: -3%;
-  left: 80px;
-  position: absolute;
+  z-index: 11;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+}
+#view #center .glitch {
+  flex: 1;
+}
+#view #center .me {
+  flex: 1;
 }
 #view #center .me__sprite {
   height: 200px;
@@ -118,6 +144,10 @@ h5 {
   background-repeat: no-repeat;
   background-position: -156px 0px, center;
   background-image: url(../res/character-sheet.png);
+}
+#view #center .bottom {
+  padding: 2rem 1rem;
+  text-align: center;
 }
 #view #center .bottom h1 {
   color: white;
@@ -132,12 +162,15 @@ h5 {
   width: 792px;
   height: 100%;
   padding: 2rem;
+  padding-right: 0;
   float: right;
   overflow: hidden;
+  z-index: 11;
   background-color: white;
 }
 #view #content .wrapper {
   height: 100%;
+  padding-right: 2rem;
   overflow: auto;
 }
 #view #content .wrapper h1 {
@@ -184,18 +217,17 @@ h5 {
   color: #fbbd08;
 }
 #view #content .wrapper .projects .list {
-  gap: 3rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 #view #content .wrapper .projects .list .project {
-  width: 320px;
-  height: 320px;
+  margin: 1rem;
   float: left;
   z-index: 100;
   position: relative;
+  flex: 1 0 30%;
   display: flex;
 }
 #view #content .wrapper .projects .list .project .front {
@@ -235,6 +267,107 @@ h5 {
 }
 #view #content .wrapper .projects .list .project:hover .overlay {
   opacity: 1;
+}
+#view.menu__open #menu {
+  width: 400px;
+  transition: ease 1s width;
+}
+@media (max-width: 1500px) {
+  #view {
+    width: 95%;
+  }
+  #view #center .bottom {
+    padding: 2rem;
+  }
+  #view #content .wrapper .projects .list {
+    gap: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+@media (max-width: 1350px) {
+  #view #center {
+    width: 350px;
+  }
+}
+@media (max-width: 1200px) {
+  #view #content .wrapper .projects .list .project {
+    min-width: 250px;
+  }
+}
+@media (max-width: 850px) {
+  #view.menu__open #menu {
+    width: 320px;
+  }
+  #view #menu {
+    border-right: 1px solid #9d00fe;
+  }
+  #view #center {
+    display: none;
+  }
+  #view #content {
+    margin-left: 80px;
+  }
+}
+@media (max-width: 400px) {
+  #view {
+    width: 100%;
+    height: 95vh;
+  }
+  #view #menu {
+    width: 50px;
+  }
+  #view #menu .toggle {
+    height: 50px;
+  }
+  #view #menu .icon_link {
+    font-size: 1.1rem;
+  }
+  #view #menu .icon_link .icon-wrapper {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+    display: inline-block;
+    text-align: center;
+  }
+  #view #menu .icon_link .icon-wrapper i {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 50px;
+  }
+  #view #menu .icon_link:hover {
+    color: #9d00ff;
+    font-size: 1.2rem;
+  }
+  #view #menu .icon_link:hover .icon-wrapper i {
+    font-size: 1.75rem;
+  }
+  #view #content {
+    margin-left: 50px;
+    padding: 1rem;
+    padding-right: 0;
+  }
+  #view #content .wrapper {
+    padding-right: 1rem;
+  }
+  #view #content .wrapper h1 {
+    margin: 0;
+    font-size: 4rem;
+  }
+  #view #content .wrapper h2 {
+    font-size: 2rem;
+  }
+  #view #content .wrapper h3.highlights span {
+    display: block;
+    font-size: 1.75rem;
+  }
+  #view #content .wrapper h3.highlights span:not(:first-child)::before {
+    content: "";
+    margin: 0;
+  }
+  #view #content .wrapper .skills ul li {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=common.css.map */

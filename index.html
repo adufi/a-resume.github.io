@@ -21,25 +21,29 @@
         <div id="stars"></div>
     </div>
 
-    <div id="view">
+    <div id="view" class="menu__ope">
         <div id="menu">
-            <div class="toggle">
-                <i class="bars icon"></i> 
+            <div class="toggle icon_link">
+                <div class="icon-wrapper">
+                    <i class="bars icon"></i> 
+                </div>
+                <h3>Arnaud ANGELY</h3>
             </div>
 
             <ul>
-                <li>
+                <li class="icon_link">
                     <div class="icon-wrapper">
                         <i class="briefcase icon"></i>
                     </div>
-                    <!-- Travail -->
+                    CV
                 </li>
             </ul>
 
-            <div class="dl">
+            <div class="dl icon_link">
                 <div class="icon-wrapper">
                     <i class="file pdf outline icon"></i>
                 </div>
+                Télécharger CV
             </div>
         </div>
 
@@ -287,9 +291,25 @@
 			}
 		}
 
+        function toggleMenu () {
+            var view = document.getElementById('view');
+            var toggle = view.querySelector('#menu .toggle');
+
+            toggle.addEventListener('click', () => {
+                if (view.classList.contains('menu__open')) {
+                    view.classList.remove('menu__open');
+                }
+                else {
+                    view.classList.add('menu__open');
+                }
+            });
+        }
+
         var stars = new Stars();
         stars.run(true);
         stars.create();
+
+        toggleMenu();
     </script>
 </body>
 </html>
