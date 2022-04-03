@@ -72,7 +72,7 @@ h5 {
   flex-direction: column;
   justify-content: space-between;
   background-color: white;
-  z-index: 12;
+  z-index: 10;
   position: absolute;
 }
 #view #menu .toggle {
@@ -157,6 +157,12 @@ h5 {
   color: white;
   font-size: 2rem;
   text-align: center;
+}
+#view #center .bottom .socials a,
+#view #center .bottom .socials a:hover,
+#view #center .bottom .socials a:active,
+#view #center .bottom .socials a:visited {
+  color: inherit;
 }
 #view #content {
   width: 792px;
@@ -270,11 +276,13 @@ h5 {
 }
 #view.menu__open #menu {
   width: 400px;
+  z-index: 12;
   transition: ease 1s width;
 }
 @media (max-width: 1500px) {
   #view {
     width: 95%;
+    height: 85vh;
   }
   #view #center .bottom {
     padding: 2rem;
@@ -312,7 +320,7 @@ h5 {
 @media (max-width: 400px) {
   #view {
     width: 100%;
-    height: 95vh;
+    height: 90vh;
   }
   #view #menu {
     width: 50px;
