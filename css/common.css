@@ -154,6 +154,9 @@ h5 {
   padding: 2rem 1rem;
   text-align: center;
 }
+#view #center .bottom .glitch {
+  display: none;
+}
 #view #center .bottom h1 {
   color: white;
   font-size: 5rem;
@@ -168,6 +171,32 @@ h5 {
 #view #center .bottom .socials a:active,
 #view #center .bottom .socials a:visited {
   color: inherit;
+}
+#view #center.remove__pixel__image .glitch {
+  display: none;
+}
+#view #center.remove__pixel__image .me {
+  display: none;
+}
+#view #center.remove__pixel__image .bottom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#view #center.remove__pixel__image .bottom .glitch {
+  flex: 0;
+  height: 1px;
+  display: inherit;
+}
+#view #center.remove__pixel__image .bottom h1 {
+  font-size: 6rem;
+}
+#view #center.remove__pixel__image .bottom h1 .ln {
+  text-transform: uppercase;
+}
+#view #center.remove__pixel__image .bottom .socials {
+  font-size: 3rem;
 }
 #view #content {
   width: 792px;
@@ -292,6 +321,9 @@ h5 {
   #view #center .bottom {
     padding: 2rem;
   }
+  #view #center.remove__pixel__image .bottom h1 {
+    font-size: 4rem;
+  }
   #view #content .wrapper .projects .list {
     gap: 1rem;
     display: flex;
@@ -301,6 +333,9 @@ h5 {
 @media (max-width: 1350px) {
   #view #center {
     width: 350px;
+  }
+  #view #center.remove__pixel__image .bottom h1 {
+    font-size: 3rem;
   }
 }
 @media (max-width: 1200px) {
